@@ -1,0 +1,29 @@
+<strings>
+    <string id="AppName">SimpleRunTracker</string>
+
+    <string id="prompt">Click Start</string>
+
+    <string id="menu_label_continue">Continue</string>
+    <string id="menu_label_save">Save</string>
+    <string id="menu_label_remove">Remove</string>
+
+    <string id="speed">Velocity</string>
+    <string id="time">Time</string>
+    <string id="distance">Distance</string>
+
+    <string id="speed_label">km/h</string>
+    <string id="distance_label">m</string>
+
+    <string id="time_ms">ms</string>
+    <string id="time_sec">s</string>
+    <string id="time_min">m</string>
+    <string id="time_hour">h</string>
+
+    <string id="max">max</string>
+    <string id="average">avg</string>
+    <string id="current">cur</string>
+
+    <string id="pulse">Pulse</string>
+
+    
+</strings>
