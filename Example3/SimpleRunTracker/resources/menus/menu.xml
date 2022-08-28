@@ -1,0 +1,5 @@
+<menu id="MainMenu">
+    <menu-item id="item_continue" label="@Strings.menu_label_continue" />
+    <menu-item id="item_save" label="@Strings.menu_label_save" />
+    <menu-item id="item_remove" label="@Strings.menu_label_remove" />
+</menu>

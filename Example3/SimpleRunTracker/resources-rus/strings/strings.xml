@@ -1,0 +1,29 @@
+<strings>
+    <string id="AppName">SimpleRunTracker</string>
+
+    <string id="prompt">Начать</string>
+
+    <string id="menu_label_continue">Продолжить</string>
+    <string id="menu_label_save">Сохранить</string>
+    <string id="menu_label_remove">Удалить</string>
+
+    <string id="speed">Скорость</string>
+    <string id="time">Время</string>
+    <string id="distance">Расстояние</string>
+
+    <string id="speed_label">км/ч</string>
+    <string id="distance_label">м</string>
+
+    <string id="time_ms">мс</string>
+    <string id="time_sec">с</string>
+    <string id="time_min">м</string>
+    <string id="time_hour">ч</string>
+
+    <string id="max">макс</string>
+    <string id="average">сред</string>
+    <string id="current">тек</string>
+
+    <string id="pulse">Пульс</string>
+
+    
+</strings>
