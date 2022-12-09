@@ -12,7 +12,7 @@ import Toybox.Lang;
 class TrackerView extends WatchUi.View {
   public var isRun as Boolean;
   private var _session as Session?;
-  private var _info as Info?;
+  private var _info as Toybox.Activity.Info?;
   private var _distance as Float;
   private var _timer as Timer.Timer;
   private var _screenShape as ScreenShape;
@@ -130,7 +130,7 @@ class TrackerView extends WatchUi.View {
     }
   }
 
-  function updateData(info as Info) as Void {
+  function updateData(info as Toybox.Activity.Info) as Void {
     if (info) {
       try {
         if (info has :averageSpeed) {
@@ -277,7 +277,7 @@ class TrackerView extends WatchUi.View {
     _timer = null;
   }
 
-  function onPosition(info as Info) {
+  function onPosition(info as Toybox.Position.Info) {
     System.println("OnPosition");
   }
 

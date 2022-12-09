@@ -1,3 +1,4 @@
 **/bin/*-settings.json
 **/bin/*.prg
 **/bin/*.prg.debug.xml
+.DS_Store
