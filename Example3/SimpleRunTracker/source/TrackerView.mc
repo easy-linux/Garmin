@@ -10,21 +10,21 @@ import Toybox.Math;
 import Toybox.Lang;
 
 class TrackerView extends WatchUi.View {
-  public var isRun as Boolean;
+  public var isRun as Boolean = true;
   private var _session as Session?;
   private var _info as Toybox.Activity.Info?;
-  private var _distance as Float;
-  private var _timer as Timer.Timer;
-  private var _screenShape as ScreenShape;
+  private var _distance as Float = 0.0;
+  private var _timer as Timer.Timer?;
+  private var _screenShape as ScreenShape?;
 
-  private var _averageSpeed as String;
-  private var _currentSpeed as String;
-  private var _maxSpeed as String;
-  private var _elapsedDistance as String;
-  private var _averageHeartRate as String;
-  private var _currentHeartRate as String;
-  private var _maxHeartRate as String;
-  private var _elapsedTime as String;
+  private var _averageSpeed as String  = "0";
+  private var _currentSpeed as String  =  "0";
+  private var _maxSpeed as String  =  "0";
+  private var _elapsedDistance as String  =  "0";
+  private var _averageHeartRate as String  =  "0";
+  private var _currentHeartRate as String  =  "0";
+  private var _maxHeartRate as String  =  "0";
+  private var _elapsedTime as String =  "0.0";
 
   function initialize() {
     try {
@@ -107,11 +107,11 @@ class TrackerView extends WatchUi.View {
     return false;
   }
 
-  function onTimer() {
+  function onTimer() as Void {
     try {
       if (isSessionRecording() && isRun) {
         var localInfo = Activity.getActivityInfo();
-        if (localInfo) {
+        if (localInfo != null) {
           if (localInfo has :timerState) {
             if (localInfo.timerState == 3) {
               _info = localInfo;
@@ -130,8 +130,8 @@ class TrackerView extends WatchUi.View {
     }
   }
 
-  function updateData(info as Toybox.Activity.Info) as Void {
-    if (info) {
+  function updateData(info as Toybox.Activity.Info | Null) as Void {
+    if (info != null) {
       try {
         if (info has :averageSpeed) {
           _averageSpeed = (info.averageSpeed * 3.6).format("%2.1f");
@@ -146,13 +146,26 @@ class TrackerView extends WatchUi.View {
           _elapsedDistance = info.elapsedDistance.format("%2d");
         }
         if (info has :averageHeartRate) {
-          _averageHeartRate = info.averageHeartRate;
+          if (info.averageHeartRate != null) {
+            _averageHeartRate = info.averageHeartRate.format("%2d");
+          } else {
+            _averageHeartRate = "0";
+          }
         }
         if (info has :currentHeartRate) {
-          _currentHeartRate = info.currentHeartRate;
+          if(info.currentHeartRate != null){
+             _currentHeartRate = info.currentHeartRate.format("%2d");
+          } else {
+            _currentHeartRate = "0";
+          }
+          
         }
         if (info has :maxHeartRate) {
-          _maxHeartRate = info.maxHeartRate;
+          if(info.maxHeartRate != null){
+          _maxHeartRate = info.maxHeartRate.format("%2d");
+          }else {
+            _maxHeartRate = "0";
+          }
         }
         if (info has :elapsedTime) {
             if(info.elapsedTime < 1000){
@@ -277,7 +290,7 @@ class TrackerView extends WatchUi.View {
     _timer = null;
   }
 
-  function onPosition(info as Toybox.Position.Info) {
+  function onPosition(info as Toybox.Position.Info) as Void {
     System.println("OnPosition");
   }
 
